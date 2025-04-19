@@ -1,0 +1,38 @@
+{
+    "version": "1.0.0",
+    "styles": {
+      "backgroundColor": "rgba(111, 255, 183, 0.1)",
+      "borderRadius": "8px",
+      "boxShadow": "0 2px 6px rgba(122, 12, 12, 0.05)",
+      "itemBackgroundColor": "linear-gradient(135deg, rgb(250, 255, 230) 0%, rgb(213, 241, 199) 100%)",
+      "amountColor": "linear-gradient(45deg, #5cb338, #8ed066)",
+      "congratsColor": "rgb(255, 11, 85)"
+    },
+    "content": {
+      "congratsMessage": "GU899 ขอแสดงความยินดี",
+      "successMessage": "ถอนเงินสำเร็จ"
+    },
+    "withdrawalRanges": [
+      { "min": 500, "max": 2000, "weight": 40 },
+      { "min": 2001, "max": 5000, "weight": 30 },
+      { "min": 5001, "max": 20000, "weight": 20 },
+      { "min": 20001, "max": 50000, "weight": 8 },
+      { "min": 50001, "max": 100000, "weight": 2 }
+    ],
+    "thaiNames": [
+      "สมชาย", "วรรณา", "อรุณ", "มานะ", "รุ่งนภา", "พิทักษ์", "กัญญา", "สมศักดิ์",
+      "พรทิพย์", "ชาติชาย", "อรพรรณ", "ประเสริฐ", "ธนากร", "กรรณิการ์", "สุทธิพงษ์"
+    ],
+    "icons": ["1.png", "2.png", "3.png", "4.png", "5.png", "6.png"],
+    "timing": {
+      "minDelay": 5000,
+      "maxDelay": 15000,
+      "largeWithdrawalDelay": 20000,
+      "largeWithdrawalThreshold": 30000
+    },
+    "initialData": [
+      { "icon": "6.png", "user": "GUx853x", "date": "17/4/68 18:25", "amount": "14,262.00", "name": "สมชาย" },
+      { "icon": "3.png", "user": "GUx937x", "date": "17/4/68 18:25", "amount": "17,488.00", "name": "วรรณา" },
+      { "icon": "6.png", "user": "GUx916x", "date": "17/4/68 18:25", "amount": "4,092.00", "name": "อรุณ" }
+    ]
+  }
