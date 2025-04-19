@@ -13,7 +13,7 @@ body, html {
     flex: 1 1 0%;
     height: 100%;
     width: 100%;
-    max-width: 650px
+    max-width: 650px;
     min-height: 45px;
     overflow: hidden;
     position: relative;
@@ -90,7 +90,7 @@ body, html {
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 370px
+    max-width: 370px;
     position: relative; /* Added for potential absolute positioning if needed */
   }
 
