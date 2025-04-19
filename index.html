@@ -7,7 +7,33 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="marquee-text-container"></div>
+  <div id="widget-root"></div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const container = document.getElementById('widget-root');
+      
+      // โหลด config
+      fetch('config.json?' + Date.now())
+        .then(response => response.json())
+        .then(config => {
+          // เริ่มต้นวิดเจ็ตโดยตรงไม่ผ่าน marquee-text-container
+          initializeWidget(container, config);
+        })
+        .catch(error => {
+          console.error('Error loading config:', error);
+          // ใช้ค่าเริ่มต้น
+          initializeWidget(container, {
+            // ค่าเริ่มต้นต่างๆ ถ้าโหลด config ไม่ได้
+            styles: {
+              backgroundColor: "rgba(111, 255, 183, 0.1)",
+              borderRadius: "8px",
+              boxShadow: "0 2px 6px rgba(122, 12, 12, 0.05)"
+            },
+            // ... ค่า config อื่นๆ
+          });
+        });
+    });
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
