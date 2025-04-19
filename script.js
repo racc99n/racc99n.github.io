@@ -345,30 +345,5 @@ function initializeWidget(container, config) {
     return window.updateTimeout;
   }
 
-  // ดึงชื่อจาก kidhaina.com เมื่อเริ่มต้น
-  fetchThaiNames();
-  
-  // เริ่มต้นแสดงรายการ
-  initializeWithdrawals();
 
-  // ตัวแปรสำหรับควบคุมการอัพเดทอัตโนมัติ
-  window.autoUpdateEnabled = true;
-
-  // เริ่มต้นการอัพเดทรายการอัตโนมัติ
-  scheduleNextUpdate();
-
-  // แจ้งให้ parent window ทราบว่าวิดเจ็ตพร้อมใช้งานแล้ว
-  if (window.parent && window.parent !== window) {
-    window.parent.postMessage({ type: 'GU_WIDGET_READY', height: document.body.scrollHeight }, '*');
-  }
 }
-
-// รองรับการปรับขนาด iframe จาก parent
-window.addEventListener('message', function(event) {
-  if (event.data && event.data.type === 'GU_RESIZE_IFRAME') {
-    const container = document.querySelector('.marquee-text-container');
-    if (container) {
-      container.style.height = event.data.height + 'px';
-    }
-  }
-});
