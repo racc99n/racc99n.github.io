@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
           styles: {
             backgroundColor: "rgba(111, 255, 183, 0.1)",
             borderRadius: "8px",
-            boxShadow: "0 2px 6px rgba(122, 12, 12, 0.05)"
+            boxShadow: "0 2px 6px rgba(122, 12, 12, 0.01)"
           },
           content: {
             congratsMessage: "GU899 ขอแสดงความยินดี",
