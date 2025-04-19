@@ -1,6 +1,6 @@
 // ใส่ในโค้ด Global JavaScript ของเว็บไซต์
 document.addEventListener('DOMContentLoaded', function() {
-    if (window.location.pathname === '/member' || window.location.href.includes('/member#')) {
+    if (window.location.pathname === '/index' || window.location.href.includes('/index#')) {
       const targetElement = document.querySelector('.marquee-text-container');
       
       if (targetElement) {
