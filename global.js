@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (targetElement) {
       // สร้าง iframe 
       const iframe = document.createElement('iframe');
-      iframe.src = 'https://racc99n.github.io/';
+      iframe.src = 'withdrawal-widget';
       iframe.style.width = '100%';
       iframe.style.border = 'none';
       iframe.style.overflow = 'hidden';
