@@ -13,6 +13,7 @@ body, html {
     flex: 1 1 0%;
     height: 100%;
     width: 100%;
+    max-width: 650px
     min-height: 45px;
     overflow: hidden;
     position: relative;
