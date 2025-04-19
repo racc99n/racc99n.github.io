@@ -89,6 +89,7 @@ body, html {
     display: flex;
     flex-direction: column;
     width: 100%;
+    max-width: 370px
     position: relative; /* Added for potential absolute positioning if needed */
   }
 
@@ -170,7 +171,7 @@ body, html {
     .gu-withdrawal-widget .gu-withdrawal-container {
       overflow: visible;
       height: auto;
-      min-height: 56px;
+      min-height: 130px;
     }
 
     .gu-withdrawal-widget .gu-withdrawal-slider {
