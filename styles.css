@@ -1,6 +1,6 @@
 body, html {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 2px;
+    margin-bottom: 2px;
     padding: 1px;
     overflow: hidden;
     font-family: Kanit , sans-serif;
@@ -205,7 +205,7 @@ body, html {
       opacity: 1;
       z-index: 10;
       width: 60%;
-      max-width: 420px;;
+      max-width: 380px;;
       box-shadow: 0 4px 12px rgba(157, 192, 139, 0.2);
       border-color: rgba(157, 192, 139, 0.8);
     }
@@ -284,9 +284,9 @@ body, html {
       transform: scale(0.95); /* Slightly larger scale than mobile */
       opacity: 0.8;
       z-index: 1;
-      margin-right: -40%; /* Adjust overlap for desktop */
+      margin-right: -33%; /* Adjust overlap for desktop */
     }
-
+  
     .gu-withdrawal-widget .withdrawal-item.center {
       transform: scale(1.13); /* Larger scale for desktop center */
       opacity: 1;
@@ -299,7 +299,7 @@ body, html {
       transform: scale(0.95); /* Slightly larger scale than mobile */
       opacity: 0.8;
       z-index: 1;
-      margin-left: -40%; /* Adjust overlap for desktop */
+      margin-left: -33%; /* Adjust overlap for desktop */
     }
 
     /* Hide content in side items */
