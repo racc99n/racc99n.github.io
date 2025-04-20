@@ -170,6 +170,7 @@ body, html {
   /* Mobile Styles */
   @media (max-width: 768px) {
     .gu-withdrawal-widget .gu-withdrawal-container {
+      align-content: center;
       overflow: visible;
       height: auto;
       min-height: 130px;
