@@ -1,337 +1,329 @@
+/* ===== รีเซ็ต CSS ===== */
 body, html {
-    margin-top: 2px;
-    margin-bottom: 2px;
-    padding: 1px;
-    overflow: hidden;
-    font-family: Kanit , sans-serif;
-    background-color: transparent;
-  }
+  margin: 0;
+  padding: 0;
+  max-height: 135px;
+  overflow: hidden;
+  font-family: Kanit, sans-serif;
+  background-color: transparent;
+}
+
+/* ===== ตัวแปร CSS สำหรับธีม ===== */
+:root {
+  --gu-primary-color: rgb(136, 194, 115);
+  --gu-accent-color: rgb(255, 11, 85);
+  --gu-gradient-start: #5cb338;
+  --gu-gradient-end: #8ed066;
+  --gu-background-color: rgba(111, 255, 183, 0.1);
+  --gu-border-color: rgba(47, 211, 96, 0.3);
+  --gu-border-highlight: rgba(255, 215, 0, 0.8);
+  --gu-item-background: linear-gradient(135deg, rgb(250, 255, 230) 0%, rgb(213, 241, 199) 100%);
+  --gu-box-shadow: 0 2px 6px rgba(122, 12, 12, 0.05);
+  --gu-text-color: rgb(63, 31, 1);
   
+  /* ขนาดสำหรับ desktop */
+  --gu-font-size-large: 1.88rem;
+  --gu-font-size-normal: 1.2rem;
+  --gu-font-size-small: 0.75rem;
+  --gu-amount-size: 2.7rem;
+  --gu-logo-size: 85px;
+  --gu-logo-min-size: 70px;
   
-  /* Scoped CSS with gu-withdrawal-widget prefix */
+  /* ขนาดสำหรับ mobile */
+  --gu-mobile-font-size-large: 1.2rem;
+  --gu-mobile-font-size-normal: 0.8rem;
+  --gu-mobile-font-size-small: 0.65rem;
+  --gu-mobile-amount-size: 1.5rem;
+  --gu-mobile-logo-size: 65px;
+  --gu-mobile-logo-min-size: 56px;
+}
+
+/* ===== โครงสร้างหลักของวิดเจ็ต ===== */
+
+/* Container หลัก */
+.gu-withdrawal-widget .gu-withdrawal-container {
+  width: 100%;
+  max-width: 750px;
+  min-height: 45px;
+  overflow: hidden;
+  position: relative;
+  background: var(--gu-background-color);
+  border-radius: 8px;
+  box-shadow: var(--gu-box-shadow);
+  margin: 0 auto;
+}
+
+/* Slider สำหรับรายการถอนเงิน */
+.gu-withdrawal-widget .gu-withdrawal-slider {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease;
+  position: relative;
+  padding: 1% 0;
+}
+
+/* ===== รายการถอนเงิน ===== */
+
+/* รายการถอนเงินทั่วไป */
+.gu-withdrawal-widget .withdrawal-item {
+  margin: 0 1.5%;
+  padding: 2% 2.5%;
+  background: var(--gu-item-background);
+  border-radius: 8px;
+  white-space: nowrap;
+  color: var(--gu-text-color);
+  border: 1px solid var(--gu-border-color);
+  box-shadow: 0 2px 4px rgba(0, 32, 4, 0.08);
+  opacity: 0.9;
+  transform-origin: center;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+}
+
+.gu-withdrawal-widget .withdrawal-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-color: rgba(75, 75, 75, 0.6);
+}
+
+/* ===== เนื้อหาภายในรายการถอนเงิน ===== */
+
+/* Content wrapper */
+.gu-withdrawal-widget .item-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 370px;
+  position: relative;
+}
+
+/* ข้อความแสดงความยินดี */
+.gu-withdrawal-widget .congrats-message {
+  font-weight: bold;
+  color: var(--gu-accent-color);
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+  line-height: 0.5;
+  font-size: var(--gu-font-size-large);
+}
+
+/* ส่วนที่แสดงรายละเอียด */
+.gu-withdrawal-widget .detail-section {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+
+/* โลโก้ธนาคาร */
+.gu-withdrawal-widget .bank-logo {
+  display: flex;
+  align-items: center;
+}
+
+.gu-withdrawal-widget .bank-logo img {
+  height: auto;
+  max-width: var(--gu-logo-size);
+  min-width: var(--gu-logo-min-size);
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+  object-fit: contain;
+}
+
+/* Container สำหรับข้อความ */
+.gu-withdrawal-widget .details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex: 1;
+  text-align: right;
+}
+
+/* ข้อความผู้ใช้ */
+.gu-withdrawal-widget .user-info {
+  font-size: var(--gu-font-size-normal);
+  font-weight: bold;
+  color: var(--gu-primary-color);
+  margin-bottom: 2px;
+}
+
+/* ส่วนแสดงจำนวนเงิน */
+.gu-withdrawal-widget .amount-display {
+  margin-bottom: 2px;
+  line-height: 1;
+}
+
+.gu-withdrawal-widget .amount-highlight {
+  font-weight: bold;
+  font-size: var(--gu-amount-size);
+  background: linear-gradient(45deg, var(--gu-gradient-start), var(--gu-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 0;
+  margin-bottom: 0;
+  display: inline;
+}
+
+/* ข้อมูลเพิ่มเติม (ID, วันเวลา) */
+.gu-withdrawal-widget .meta-info {
+  font-size: var(--gu-font-size-small);
+  opacity: 0.8;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  width: 100%;
+}
+
+/* ===== Animation ===== */
+
+/* Animation สำหรับรายการใหม่ */
+.gu-withdrawal-widget .withdrawal-item.new-item {
+  animation: guWithdrawalFadeIn 0.6s ease-out;
+}
+
+/* Animation สำหรับรายการที่ออก */
+.gu-withdrawal-widget .withdrawal-item.exit-item {
+  animation: guWithdrawalFadeOut 0.6s ease-in;
+}
+
+@keyframes guWithdrawalFadeIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 0.9; transform: translateX(0); }
+}
+
+@keyframes guWithdrawalFadeOut {
+  from { opacity: 0.9; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(-20px); }
+}
+
+/* Animation สำหรับ highlight */
+@keyframes guBorderShine {
+  0% { border-color: var(--gu-border-color); box-shadow: 0 3px 8px rgba(0, 32, 4, 0.1), 0 0 5px rgba(255, 255, 100, 0); }
+  50% { border-color: var(--gu-border-highlight); box-shadow: 0 3px 8px rgba(0, 32, 4, 0.1), 0 0 15px 5px rgba(255, 255, 100, 0.7); }
+  100% { border-color: var(--gu-border-color); box-shadow: 0 3px 8px rgba(0, 32, 4, 0.1), 0 0 5px rgba(255, 255, 100, 0); }
+}
+
+.gu-withdrawal-widget .large-withdrawal-highlight {
+  animation: guBorderShine 1.5s infinite ease-in-out;
+  border-width: 2px;
+}
+
+/* ===== รูปแบบสำหรับมือถือ ===== */
+@media (max-width: 2768px) {
   .gu-withdrawal-widget .gu-withdrawal-container {
-    flex: 1 1 0%;
-    height: 100%;
-    width: 100%;
-    max-width: 750px;
-    min-height: 45px;
-    overflow: hidden;
-    position: relative;
-    background: rgba(111, 255, 183, 0.1);
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(122, 12, 12, 0.05);
-  }
-
-  .gu-withdrawal-widget .gu-withdrawal-slider {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    transition: transform 0.5s ease;
-    position: relative;
-  }
-
-  .gu-withdrawal-widget .user-id.withdraw-text-highlight {
-    margin-top: 1px;
+    align-content: center;
+    overflow: visible;
+    height: auto;
+    max-width: 350px;
+    min-height: 130px;
   }
 
   .gu-withdrawal-widget .withdrawal-item {
-    margin: 0 1.5%;
-    padding: 2% 2.5%;
-    background: linear-gradient(135deg, rgb(250, 255, 230) 0%, rgb(213, 241, 199) 100%);
-    border-radius: 8px;
-    white-space: nowrap;
-    color: rgb(63, 31, 1);
-    border: 1px solid rgba(47, 211, 96, 0.3);
-    box-shadow: 0 2px 4px rgba(0, 32, 4, 0.08);
-    opacity: 0.9;
+    text-align: center;
     transform-origin: center;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    min-width: 250px;
+    padding: 3% 4%;
+    transition: all 0.5s ease;
+    border-width: 1px;
   }
 
-  .gu-withdrawal-widget .withdrawal-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-color: rgba(75, 75, 75, 0.6);
+  .gu-withdrawal-widget .withdrawal-item.left {
+    transform: scale(0.90);
+    opacity: 0.8;
+    width: 30%;
+    max-width: 30%;
+    z-index: 1;
+    margin-right: -30%;
   }
 
-  .gu-withdrawal-widget .withdrawal-item.new-item {
-    animation: guWithdrawalFadeIn 0.6s ease-out;
+  .gu-withdrawal-widget .withdrawal-item.center {
+    transform: scale(1.13);
+    opacity: 1;
+    z-index: 10;
+    width: 60%;
+    max-width: 380px;
+    box-shadow: 0 4px 12px rgba(157, 192, 139, 0.2);
+    border-color: rgba(157, 192, 139, 0.8);
   }
 
-  .gu-withdrawal-widget .withdrawal-item.exit-item {
-    animation: guWithdrawalFadeOut 0.6s ease-in;
+  .gu-withdrawal-widget .withdrawal-item.right {
+    transform: scale(0.90);
+    opacity: 0.8;
+    width: 30%;
+    max-width: 30%;
+    z-index: 1;
+    margin-left: -30%;
   }
 
-  @keyframes guWithdrawalFadeIn {
-    from { opacity: 0; transform: translateX(20px); }
-    to { opacity: 0.9; transform: translateX(0); }
+  .gu-withdrawal-widget .withdrawal-item.left .item-content,
+  .gu-withdrawal-widget .withdrawal-item.right .item-content {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
-  @keyframes guWithdrawalFadeOut {
-    from { opacity: 0.9; transform: translateX(0); }
-    to { opacity: 0; transform: translateX(-20px); }
-  }
-
-  /* Add border shine animation with unique name */
-  @keyframes guBorderShine {
-    0% { border-color: rgba(47, 211, 96, 0.3); box-shadow: 0 3px 8px rgba(0, 32, 4, 0.1), 0 0 5px rgba(255, 255, 100, 0); }
-    50% { border-color: rgba(255, 215, 0, 0.8); box-shadow: 0 3px 8px rgba(0, 32, 4, 0.1), 0 0 15px 5px rgba(255, 255, 100, 0.7); }
-    100% { border-color: rgba(47, 211, 96, 0.3); box-shadow: 0 3px 8px rgba(0, 32, 4, 0.1), 0 0 5px rgba(255, 255, 100, 0); }
-  }
-
-  /* Class to apply the border shine */
-  .gu-withdrawal-widget .large-withdrawal-highlight {
-    animation: guBorderShine 1.5s infinite ease-in-out;
-    border-width: 2px; /* Ensure border is visible */
-  }
-
-  .gu-withdrawal-widget .item-content {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 370px;
-    position: relative; /* Added for potential absolute positioning if needed */
-  }
-
-  .gu-withdrawal-widget .congrats-message { /* New style for Line 1 */
-    font-weight: bold;
-    color: rgb(255, 11, 85); /* Adjust color if needed */
-    width: 100%;
-    text-align: center; /* Center the congrats message */
-    margin-bottom: 10px; /* Space below congrats */
-    line-height: 0.5;
-  }
-
-  .gu-withdrawal-widget .detail-section {
-    display: flex;
-    align-items: center; /* Vertically align logo and text block */
-    width: 100%;
-    gap: 10px; /* Space between logo and text block */
-  }
-
-  .gu-withdrawal-widget .bank-logo {
-    display: flex;
-    align-items: center;
-    /* Removed margin-left */
+  /* ขนาดอักษรสำหรับมือถือ */
+  .gu-withdrawal-widget .congrats-message {
+    font-size: var(--gu-mobile-font-size-large);
+    margin-bottom: 5px;
   }
 
   .gu-withdrawal-widget .bank-logo img {
-    height: auto;
-    max-width: 60px; /* Increased logo size */
-    min-width: 56px; /* Increased logo size */
-    /* margin-left: 15px; */ /* Removed */
-    margin-right: 0; /* Reset margin */
-    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
-    object-fit: contain;
+    width: var(--gu-mobile-logo-size);
+    min-width: var(--gu-mobile-logo-min-size);
   }
 
-  .gu-withdrawal-widget .details-container { /* New container for lines 2, 3, 4 */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* Align text to the right */
-    flex: 1; /* Take remaining space */
-    text-align: right; /* Ensure text aligns right */
+  .gu-withdrawal-widget .details-container {
+    gap: 1px;
   }
 
-  .gu-withdrawal-widget .user-info { /* New style for Line 2 */
-    font-size: 1.0rem;
-    font-weight: bold;
-    color: rgb(136, 194, 115);
-    margin-bottom: 2px;
+  .gu-withdrawal-widget .user-info {
+    font-size: var(--gu-mobile-font-size-normal);
   }
 
-  .gu-withdrawal-widget .amount-display { /* New style for Line 3 */
-    margin-bottom: 2px;
-    line-height: 1; /* Adjust line height for amount */
-  }
-
-  /* Keep amount-highlight specific styles */
   .gu-withdrawal-widget .amount-highlight {
-    font-weight: bold;
-    font-size: 2.5rem; /* Base size, will be overridden by media queries */
-    background: linear-gradient(45deg, #5cb338, #8ed066);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    padding: 0; /* Remove padding */
-    margin-bottom: 0; /* Remove margin */
-    display: inline; /* Change to inline */
+    font-size: var(--gu-mobile-amount-size) !important;
   }
 
-  .gu-withdrawal-widget .meta-info { /* New style for Line 4 */
-    font-size: 0.7rem;
+  .gu-withdrawal-widget .meta-info {
+    font-size: var(--gu-mobile-font-size-small);
+    gap: 5px;
+  }
+}
+
+/* ===== รูปแบบสำหรับเดสก์ท็อป ===== */
+@media (min-width: 7769px) {
+  .gu-withdrawal-widget .withdrawal-item {
+    max-width: 400px;
+    flex: 0 1 auto;
+    border-radius: 12px;
+    border: 1.5px solid var(--gu-border-color);
+    box-shadow: 0 3px 8px rgba(0, 32, 4, 0.1);
+    padding: 12px 18px;
+  }
+
+  .gu-withdrawal-widget .withdrawal-item.left {
+    transform: scale(0.95);
     opacity: 0.8;
-    display: flex; /* Use flex to space out user/date */
-    justify-content: flex-end; /* Align items to the right */
-    gap: 8px; /* Space between user ID and date */
-    width: 100%; /* Ensure it takes full width of container */
+    z-index: 1;
+    margin-right: -33%;
   }
-
-  /* Mobile Styles */
-  @media (max-width: 768px) {
-    .gu-withdrawal-widget .gu-withdrawal-container {
-      align-content: center;
-      overflow: visible;
-      height: auto;
-      min-height: 130px;
-    }
-
-    .gu-withdrawal-widget .gu-withdrawal-slider {
-      justify-content: center !important;
-      width: 100%;
-      padding: 1% 0;
-    }
-
-    .gu-withdrawal-widget .withdrawal-item {
-      text-align: center;
-      transform-origin: center;
-      min-width: 250px;
-      padding: 3% 4%; /* Adjust padding */
-      transition: all 0.5s ease;
-      position: relative;
-      border-width: 1px;
-    }
-
-    .gu-withdrawal-widget .withdrawal-item.left {
-      transform: scale(0.90);
-      opacity: 0.8;
-      width: 30%;
-      max-width: 30%;
-      z-index: 1;
-      margin-right: -30%;
-    }
-
-    .gu-withdrawal-widget .withdrawal-item.center {
-      transform: scale(1.13);
-      opacity: 1;
-      z-index: 10;
-      width: 60%;
-      max-width: 380px;;
-      box-shadow: 0 4px 12px rgba(157, 192, 139, 0.2);
-      border-color: rgba(157, 192, 139, 0.8);
-    }
-
-    .gu-withdrawal-widget .withdrawal-item.right {
-      transform: scale(0.90);
-      opacity: 0.8;
-      width: 30%;
-      max-width: 30%;
-      z-index: 1;
-      margin-left: -30%;
-    }
-
-    .gu-withdrawal-widget .withdrawal-item.left .item-content,
-    .gu-withdrawal-widget .withdrawal-item.right .item-content {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-
-    .gu-withdrawal-widget .congrats-message {
-      font-size: 1.2rem;
-      margin-bottom: 5px;
-    }
-
-    .gu-withdrawal-widget .bank-logo img {
-      width: 65px;
-      min-width: 56px;
-    }
-
-    .gu-withdrawal-widget .details-container {
-      gap: 1px; /* Reduce gap on mobile */
-    }
-
-    .gu-withdrawal-widget .user-info {
-      font-size: 0.8rem;
-    }
-
-    .gu-withdrawal-widget .amount-highlight {
-      font-size: 1.5rem !important; /* Mobile specific highlight size */
-    }
-
-    .gu-withdrawal-widget .meta-info {
-      font-size: 0.65rem;
-      gap: 5px;
-    }
-  }
-
-  /* Desktop Styles */
-  @media (min-width: 769px) {
-    .gu-withdrawal-widget .gu-withdrawal-slider {
-      justify-content: center !important; /* Center items like mobile */
-      padding: 1% 0; /* Add padding like mobile */
-    }
-
-    .gu-withdrawal-widget .withdrawal-item {
-      /* Base desktop item styles for 3 items */
-      min-width: 350px; /* Adjust min-width for 3 items */
-      max-width: 400px; /* Adjust max-width */
-      flex: 0 1 auto;
-      border-radius: 12px;
-      border: 1.5px solid rgba(47, 211, 96, 0.4);
-      box-shadow: 0 3px 8px rgba(0, 32, 4, 0.1);
-      padding: 12px 18px; /* Adjust padding */
-      position: relative;
-      transition: all 0.5s ease;
-      transform-origin: center;
-    }
-
-    .gu-withdrawal-widget .congrats-message {
-      margin-bottom: 5px;
-    }
-
-    /* Styles for 3 items in desktop - similar to mobile but adjusted */
-    .gu-withdrawal-widget .withdrawal-item.left {
-      transform: scale(0.95); /* Slightly larger scale than mobile */
-      opacity: 0.8;
-      z-index: 1;
-      margin-right: -33%; /* Adjust overlap for desktop */
-    }
   
-    .gu-withdrawal-widget .withdrawal-item.center {
-      transform: scale(1.13); /* Larger scale for desktop center */
-      opacity: 1;
-      z-index: 10;
-      box-shadow: 0 4px 12px rgba(157, 192, 139, 0.2);
-      border-color: rgba(157, 192, 139, 0.8);
-    }
-
-    .gu-withdrawal-widget .withdrawal-item.right {
-      transform: scale(0.95); /* Slightly larger scale than mobile */
-      opacity: 0.8;
-      z-index: 1;
-      margin-left: -33%; /* Adjust overlap for desktop */
-    }
-
-    /* Hide content in side items */
-    .gu-withdrawal-widget .withdrawal-item.left .item-content,
-    .gu-withdrawal-widget .withdrawal-item.right .item-content {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      opacity: 0.8; /* Adjust opacity if needed */
-    }
-
-    .gu-withdrawal-widget .congrats-message {
-      font-size: 1.88rem;
-      margin-top: 10px;
-    }
-
-    .gu-withdrawal-widget .bank-logo img {
-      width: 85px; /* Larger logo on desktop */
-      min-width: 70px;
-    }
-
-    .gu-withdrawal-widget .user-info {
-      font-size: 1.2rem;
-      margin-top: 10px;
-    }
-
-    .gu-withdrawal-widget .amount-highlight {
-      font-size: 2.7rem !important; /* Desktop specific highlight size */
-    }
-
-    .gu-withdrawal-widget .meta-info {
-      font-size: 0.75rem;
-    }
+  .gu-withdrawal-widget .withdrawal-item.center {
+    transform: scale(1.13);
+    opacity: 1;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(157, 192, 139, 0.2);
+    border-color: rgba(157, 192, 139, 0.8);
   }
+
+  .gu-withdrawal-widget .withdrawal-item.right {
+    transform: scale(0.95);
+    opacity: 0.8;
+    z-index: 1;
+    margin-left: -33%;
+  }
+}
