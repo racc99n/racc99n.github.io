@@ -286,5 +286,24 @@
 
     document.addEventListener('DOMContentLoaded', startLoopingCarousel);
   </script>
+    <script>
+      // สคริปต์เฉพาะสำหรับหน้านี้
+      document.addEventListener('DOMContentLoaded', function() {
+        fetch('config.json?' + Date.now())
+          .then(response => response.json())
+          .then(config => {
+            initializeWidget(document.querySelector('.widget-container'), config);
+            
+            // แจ้งขนาดไปยัง parent
+            if (window.parent && window.parent !== window) {
+              window.parent.postMessage({ 
+                type: 'GU_WIDGET_READY', 
+                height: document.body.scrollHeight 
+              }, '*');
+            }
+          })
+          .catch(err => console.error('Error:', err));
+      });
+    </script>
 </body>
 </html>
