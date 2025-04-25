@@ -109,16 +109,22 @@
       }
       .line1 {
         font-size: 15px;
-        margin-left: 5px;
+        margin-left: 3px;
       }
       .line2 {
         font-size: 14px;
-        margin-left: 5px;
+        margin-left: 3px;
+      }
+      .line1 strong {
+        font-size: 18px;
+      }
+      .line2 strong {
+        font-size: 15px;
       }
     }
 
     /* Desktop: width >= 780px */
-    @media (min-width: 780px) {
+    @media (min-width: 720px) {
       .marquee-carousel-item {
         flex: 0 0 50%;
         max-width: 50%;
@@ -128,10 +134,16 @@
         height: 48px;
       }
       .line1 {
-        font-size: 15px;
+        font-size: 13px;
       }
       .line2 {
-        font-size: 14px;
+        font-size: 12px;
+      }
+      .line1 strong {
+        font-size: 16px;
+      }
+      .line2 strong {
+        font-size: 13px;
       }
     }
   </style>
@@ -159,7 +171,7 @@
       "Caisgen Wins": "https://assets.g2gbet.co/gm-logo/img/sportsbook/game/PGS/L/PGS_Caishen%20Wins_1702650093.webp",
       "Way of the Qilin": "https://assets.g2gbet.co/gm-logo/img/sportsbook/game/PGS/L/PGS_Ways%20of%20the%20Qilin_1702651533.webp",
       "Thai River Wonders": "https://assets.g2gbet.co/gm-logo/img/sportsbook/game/PGS/L/PGS_Thai%20River%20Wonders_1702651480.webp",
-      "Wild Bounty": "https://assets.g2gbet.co/gm-logo/img/sportsbook/game/PGS/L/PGS_Thai%20River%20Wonders_1702651480.webp",
+      "Wild Bounty": "https://assets.g2gbet.co/gm-logo/img/sportsbook/game/PGS/L/PGS_Wild%20Bounty%20Showdown_1702651563.webp",
       "Mafia": "https://assets.g2gbet.co/gm-logo/img/sportsbook/game/PGS/L/PGS_Mafia%20Mayhem_1702653832.webp",
       "Mahjong Ways": "https://assets.g2gbet.co/gm-logo/img/sportsbook/game/PGS/L/PGS_Mahjong%20Ways_1702651252.webp"
     };
@@ -195,7 +207,7 @@
         <div class="marquee-carousel-item">
           <img class="game-icon" src="${iconUrl}" alt="${game}">
           <div style="display:flex; flex-direction:column; justify-content:center; min-width:0;">
-            <div class="line1">${username} รับเงินรางวัล <strong>${amount.toLocaleString('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ฿</strong></div>
+            <div class="line1">${username} รับเงินรางวัล <strong>${amount.toLocaleString('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>  ฿</div>
             <div class="line2">Bonus <strong>x ${bonusMultiplier.toLocaleString()}</strong> จากเกม <strong>${game}</strong></div>
           </div>
         </div>
